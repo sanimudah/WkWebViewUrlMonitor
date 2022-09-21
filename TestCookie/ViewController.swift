@@ -18,7 +18,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         webView.navigationDelegate = self
         // Do any additional setup after loading the view.
-        let request = URLRequest(url: URL(string: "https://www.mudah.my")!)
+//        let urlString = "https://www.mudah.my"
+        let urlString = "http://localhost:3000/"
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.setValue("xoxo-gossip-girl", forHTTPHeaderField: "x-mudah-hd")
+        webView.customUserAgent = "sani-is-here"
         webView.load(request)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
